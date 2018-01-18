@@ -1,1 +1,3 @@
-# CS5551-ASE-Part1
+# CS5551-ASE-ICP1
+
+This is the respository for ICP1
