@@ -1,0 +1,66 @@
+<!--
+DJ Yuhn
+CS5551 - ICP2
+-->
+
+<!DOCTYPE html>
+<html lang="" ng-app="weather">
+<head>
+    <meta t="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICP-2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js" type="application/javascript"></script>
+    <style>
+        .weatherModule {
+            background: #f2f2f2;
+            height: 150px;
+            width: 250px;
+            border: 1px dashed #ccc;
+            padding: 1em;
+        }
+    </style>
+</head>
+
+<body>
+<div ng-app="weather" ng-controller="weatherctrl">
+    <label for="City">City</label>
+    <input type="text"  ng-model="city" id="city"/>
+    <label for="State">State</label>
+    <input type="text"  ng-model="state" id="state" />
+    <button id="btn" ng-click="getWeather()"> Show Weather </button>
+    <br/>
+    <br/>
+    <label for="Temp">Temperature in Fahrenheit:</label>
+    <input type="textarea" id="outTemp" />
+    <br/>
+    <br/>
+    <label for="Weather">Weather</label>
+    <input type="textarea" id="outWeather" />
+</div>
+</body>
+</html>
+
+<script>
+
+    angular.module('weather', [])
+        .controller('weatherctrl', function($scope, $http) {
+
+            $scope.getWeather = function() {
+                var city = document.getElementById("city").value;
+                var state = document.getElementById("state").value;
+                $http.get('https://api.wunderground.com/api/36b799dc821d5836/conditions/q/'+state+'/'+city+'.json').success(function(data) {
+                    console.log(data);
+                    temp = data.current_observation.temp_f;
+                    icon = data.current_observation.icon_url;
+                    weather = data.current_observation.weather;
+                    console.log(temp);
+
+                    document.getElementById("outTemp").value = temp + " degrees";
+                    document.getElementById("outWeather").value = "It is " + weather;
+
+                })
+            }
+
+        });
+
+</script>
