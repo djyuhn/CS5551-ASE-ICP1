@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html ng-app="homeModule">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Rectangle Mobile Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--
+    Rectangle Template
+    http://www.templatemo.com/preview/templatemo_439_rectangle
+    -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/templatemo-style.css">
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
+    <style type='text/css'>
+        .partition1 {
+            width: 20%;
+            float: left;
+            margin-right: 10px;
+        }
+
+        .partition2 {
+            width: 70%;
+            float: right;
+        }
+
+        .partition-wrap {
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        td{
+            margin: 5px;
+        }
+
+    </style>
+</head>
+
+<body ng-controller="homeController">
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div class="site-bg"></div>
+<!--
+<div class="site-bg-overlay"></div>
+-->
+
+<!-- TOP HEADER -->
+<div class="top-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <p class="Contact Info">DJ Yuhn: <a href="#">dygw3@mail.umkc.edu</a> ID: 48</p>
+            </div>
+        </div>
+    </div>
+</div> <!-- .top-header -->
+
+
+<div class="visible-xs visible-sm responsive-menu">
+    <a href="#" class="toggle-menu">
+        <i class="fa fa-bars"></i> Show Menu
+    </a>
+    <div class="show-menu">
+        <ul class="main-menu">
+            <li>
+                <a class="show-1 active homebutton" href="#"><i class="fa fa-home"></i>Home</a>
+            </li>
+            <li>
+                <a class="show-2 aboutbutton" href="#"><i class="fa fa-search"></i>Search Food</a>
+            </li>
+            <li>
+                <a class="show-5 contactbutton" href="#"><i class="fa fa-envelope"></i>Contact</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="container" id="page-content">
+    <div class="row">
+
+
+        <div class="col-md-9 col-sm-12 content-holder">
+            <!-- CONTENT -->
+            <div id="menu-container">
+
+
+                <div id="menu-1" class="homepage home-section text-center">
+                    <div class="welcome-text">
+                        <h2>Hello, Welcome to <strong>ICP3 - UMKC</strong></h2>
+                        <p>ICP3 - UMKC  <span class="orange"></span> which is built using <span class="orange">Edamam's Nutrition Analysis API and Watson's Text to Speech API
+                        </span>. This application finds the food and presents the nutritional facts for that food.</p>
+                        <br/>
+                    </div>
+                </div>
+
+                <div id="menu-2" class="content about-section">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8" style="width: 100%;">
+                            <div class="box-content profile">
+                                <h3 class="widget-title">Search Food</h3>
+                                <form class="contact-form">
+                                    <fieldset>
+                                        <input type="text" style="width: 44%;" class="name" id="food"
+                                               ng-model="food" placeholder="Enter Food Name">
+                                        <input type="button" class="button" style="padding:9px 18px;"
+                                               ng-click="findFood();" value="Find">
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 col-sm-5">
+                            <div class="box-content">
+                                <h3 class="widget-title" style="font-weight: 600; ">Calories</h3>
+
+                                <div class="project-item" >
+
+                                        <h4 id="calories"></h4>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-5 col-sm-5">
+                            <div class="box-content">
+                                <h3 class="widget-title" style="font-weight: 600; ">Total Weight</h3>
+
+                                <div class="project-item" >
+
+                                    <h4 id="weight"></h4>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="col-md-3 hidden-sm">
+
+            <nav id="nav" class="main-navigation hidden-xs hidden-sm">
+                <ul class="main-menu">
+                    <li>
+                        <a class="show-1 active homebutton" href="#"><i class="fa fa-home"></i>Home</a>
+                    </li>
+                    <li>
+                        <a class="show-2 aboutbutton" href="#"><i class="fa fa-search"></i>Search Food</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+</div>
+
+<!-- SITE-FOOTER -->
+<div class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+            </div>
+        </div>
+    </div>
+</div> <!-- .site-footer -->
+
+<script src="js/vendor/jquery-1.10.2.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+<script type="text/javascript" src="http://code.angularjs.org/1.1.1/angular.js"></script>
+<script type="text/javascript" src="http://code.angularjs.org/1.1.1/angular-resource.js"></script>
+<script type="text/javascript" src="http://code.angularjs.org/1.1.1/angular-sanitize.js"></script>
+<script src="js/home.js"></script>
+<script type="text/javascript" src="js/services.js"></script>
+<script src="js/googleOauth.js"></script>
+<script src="js/angularOauth.js"></script>
+
+<!-- templatemo 439 rectangle -->
+</body>
+</html>

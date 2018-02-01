@@ -1,0 +1,5 @@
+// Used for hiding API Keys
+http://c-ro.github.io/blog/node/github/2016/02/12/Hide-API-Keys-for-Github-Node.html
+
+// Edamam API documentation for nutrition
+https://developer.edamam.com/edamam-docs-nutrition-api
