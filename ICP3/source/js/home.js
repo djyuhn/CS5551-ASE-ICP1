@@ -1,5 +1,7 @@
-var appID = "b14eeae1"; //Provided by class source code
-var appKey = "dd733c0307965a1f70d18f6e4286026f"; //Provided by class source code
+var appID = "YOUR EDAMAM ID"; // edamam ID
+var appKey = "YOUR EDAMAM KEY"; // edamam key
+var watUser = "YOUR WATSON USER"; //
+var watPass = "YOUR WATSON PASS";
 
 var myapp = angular.module( 'homeModule', ['googleOauth'] );
 
@@ -22,7 +24,6 @@ myapp.controller( 'homeController', function ($scope, $http,$rootScope,$log, $wi
     //  https://api.edamam.com/diet?q=chicken&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}&from=0&to=3&calories=gte%20591,%20lte%20722&health=alcohol-free
     $scope.findFood = function () {
         //var end = document.getElementById('endlocation').value;
-        alert( "Looking for " + $scope.food + " nutritional facts.");
         $http.get( 'https://api.edamam.com/api/nutrition-data?&app_id=' +
             appID + '&app_key=' + appKey + '&ingr=' + encodeURI($scope.food)).success( function (data1) {
             console.log( data1 );
@@ -33,11 +34,17 @@ myapp.controller( 'homeController', function ($scope, $http,$rootScope,$log, $wi
 
     };
 
+    $scope.sayWatson = function () {
+        window.location = 'https://stream.watsonplatform.net/text-to-speech/api/v1/synthesize?username=f7d9cc39-fb7d-42cb-b571-c7c7b2951af6&password=tGfnGBOmtUCg&text=' + $scope.food
+    };
+
     $rootScope.updateSession = function () {
         //reads the session variables if exist from php
         $rootScope.session = "hello";
 
     };
+
+
 
     $rootScope.updateSession();
 
