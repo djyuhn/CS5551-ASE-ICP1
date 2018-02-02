@@ -1,7 +1,7 @@
 var appID = "YOUR EDAMAM ID"; // edamam ID
 var appKey = "YOUR EDAMAM KEY"; // edamam key
-var watUser = "YOUR WATSON USER"; //
-var watPass = "YOUR WATSON PASS";
+var watUser = "YOUR WATSON USER"; // Watson User
+var watPass = "YOUR WATSON PASSWORD"; // Watson Password
 
 var myapp = angular.module( 'homeModule', ['googleOauth'] );
 
