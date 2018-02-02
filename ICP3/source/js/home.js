@@ -35,7 +35,7 @@ myapp.controller( 'homeController', function ($scope, $http,$rootScope,$log, $wi
     };
 
     $scope.sayWatson = function () {
-        window.location = 'https://stream.watsonplatform.net/text-to-speech/api/v1/synthesize?username=f7d9cc39-fb7d-42cb-b571-c7c7b2951af6&password=tGfnGBOmtUCg&text=' + $scope.food
+        window.location = 'https://stream.watsonplatform.net/text-to-speech/api/v1/synthesize?username=' + watUser + '&password=' + watPass + '&text=' + $scope.food
     };
 
     $rootScope.updateSession = function () {
@@ -44,10 +44,7 @@ myapp.controller( 'homeController', function ($scope, $http,$rootScope,$log, $wi
 
     };
 
-
-
     $rootScope.updateSession();
-
 
 } );
 
