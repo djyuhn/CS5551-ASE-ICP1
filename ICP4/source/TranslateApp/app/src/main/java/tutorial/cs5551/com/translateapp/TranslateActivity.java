@@ -10,6 +10,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -30,6 +32,10 @@ public class TranslateActivity extends AppCompatActivity {
     String API_KEY = "b29103a702edd6a";
     String sourceText;
     TextView outputTextView;
+    Spinner sourceSpin;
+    Spinner targetSpin;
+    String sourceLang;
+    String targetLang;
     Context mContext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +44,17 @@ public class TranslateActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         outputTextView = (TextView) findViewById(R.id.txt_Result);
+
+        sourceSpin = (Spinner) findViewById(R.id.source_language);
+        targetSpin = (Spinner) findViewById(R.id.target_language);
+
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.language_names,
+                android.R.layout.simple_spinner_item);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        sourceSpin.setAdapter(adapter);
+        targetSpin.setAdapter(adapter);
     }
     public void logout(View v) {
         Intent redirect = new Intent(TranslateActivity.this, LoginActivity.class);
@@ -47,10 +64,14 @@ public class TranslateActivity extends AppCompatActivity {
         TextView sourceTextView = (TextView) findViewById(R.id.txt_Email);
 
         sourceText = sourceTextView.getText().toString();
+        sourceLang = getResources().getStringArray(R.array.language_codes)[sourceSpin.getSelectedItemPosition()];
+        targetLang = getResources().getStringArray(R.array.language_codes)[targetSpin.getSelectedItemPosition()];
+
         String getURL = "https://translate.yandex.net/api/v1.5/tr.json/translate?" +
                 "key=trnsl.1.1.20151023T145251Z.bf1ca7097253ff7e." +
                 "c0b0a88bea31ba51f72504cc0cc42cf891ed90d2&text=" + sourceText +"&" +
-                "lang=en-es&[format=plain]&[options=1]&[callback=set]";//The API service URL
+                "lang=" + sourceLang + "-" + targetLang +
+                "&[format=plain]&[options=1]&[callback=set]";//The API service URL
         final String response1 = "";
         OkHttpClient client = new OkHttpClient();
         try {
