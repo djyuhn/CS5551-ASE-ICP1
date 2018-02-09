@@ -1,8 +1,10 @@
 # CS5551-ASE-ICP1
 
-The respository for In Class Programming Assignments for DJ Yuhn and Yuxi Mao of UMKC.
+The respository for In Class Programming Assignments for DJ Yuhn.
 
-email: djgw3@mail.umkc.edu, ymmm7@mail.umkc.edu
+Partners are Yuxi Mao, and Stephanie Retzke
+
+email: djgw3@mail.umkc.edu, ymmm7@mail.umkc.edu, smrhfb@mail.umkc.edu
 
 ## In Class Programming Assignments
 
