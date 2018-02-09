@@ -2,7 +2,7 @@
 
 The respository for In Class Programming Assignments for DJ Yuhn.
 
-Partners are Yuxi Mao, and Stephanie Retzke
+Partners are Yuxi Mao and Stephanie Retzke
 
 email: djgw3@mail.umkc.edu, ymmm7@mail.umkc.edu, smrhfb@mail.umkc.edu
 
