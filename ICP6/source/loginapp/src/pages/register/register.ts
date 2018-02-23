@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { LoggedinPage } from '../loggedin/loggedin';
+import firebase from 'firebase';
 
 
 /**
@@ -20,6 +21,8 @@ export class RegisterPage {
 
   @ViewChild('username') user;
   @ViewChild('password') password;
+  @ViewChild('firstName') firstName;
+  @ViewChild('lastName') lastName;
 
   constructor(private alertCtrl: AlertController, private fire: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
   
@@ -27,6 +30,14 @@ export class RegisterPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
+  }
+  
+  createUser(firstName: string, lastName: string, username: string): void {
+    const userRef: firebase.database.Reference = firebase.database().ref('/users/').child(firebase.auth().currentUser.uid).set({
+        firstName,
+        lastName,
+        username
+    })
   }
   
   alert(message: string) {
@@ -40,6 +51,9 @@ export class RegisterPage {
   registerUser() {
     this.fire.auth.createUserWithEmailAndPassword(this.user.value, this.password.value).then(data => {
         console.log('got data ', data);
+        
+        this.createUser(this.firstName.value, this.lastName.value, this.user.value);
+        
         this.alert('Registered!');
         this.navCtrl.setRoot( LoggedinPage );
         // user is registered
