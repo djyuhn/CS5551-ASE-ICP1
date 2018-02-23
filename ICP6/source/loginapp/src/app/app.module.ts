@@ -13,6 +13,19 @@ import { RegisterPage } from '../pages/register/register';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+
+const firebaseAuth = {
+    apiKey: "AIzaSyDTw5NrP4zlUWoTnZrULefV670r2fHAo7c",
+    authDomain: "icp6-1624d.firebaseapp.com",
+    databaseURL: "https://icp6-1624d.firebaseio.com",
+    projectId: "icp6-1624d",
+    storageBucket: "icp6-1624d.appspot.com",
+    messagingSenderId: "522583751152"
+  };
+
 @NgModule({
   declarations: [
     MyApp,
@@ -25,7 +38,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseAuth),
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
