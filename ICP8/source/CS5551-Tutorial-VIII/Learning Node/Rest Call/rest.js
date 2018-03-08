@@ -1,5 +1,5 @@
 var request = require('request');
-request('https://api.foursquare.com/v2/venues/search?client_id=Q0ENF1YHFTNPJ31DCF13ALLENJW0P5MTH13T1SA0ZP1MUOCI&client_secret=ZH4CRZNEWBNTALAE3INIB5XG0QI12R4DT5HKAJLWKYE1LHOG&v=20160215&limit=10&near=Kansas&query=pizza', function (error, response, body) {
+request('http://numbersapi.com/3/7/date?json', function (error, response, body) {
     //Check for error
     if(error){
         return console.log('Error:', error);
@@ -12,11 +12,11 @@ request('https://api.foursquare.com/v2/venues/search?client_id=Q0ENF1YHFTNPJ31DC
 //	console.log(body);
     //All is good. Print the body
     body = JSON.parse(body);
-	var ven = body.response.venues;
+	var text = body.response.text;
 	var i;
-	for(i=0;i<ven.length;i++)
+	for(i=0;i<text.length;i++)
 	{
-		console.log(ven[i].name);
+		console.log(text[i].name);
 	}
 	
 });

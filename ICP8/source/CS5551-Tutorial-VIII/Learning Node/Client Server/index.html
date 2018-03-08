@@ -13,7 +13,19 @@
 
   <style>
 
-        .menu input{
+    .menu label {
+        width: 100px;
+        background: transparent;
+        color: #5e5e5e;
+        font-family: 'Exo', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 6px;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .menu input{
       width: 300px;
       background: transparent;
       border: 2px solid #1ab188;
@@ -91,34 +103,22 @@
 
   <div  ng-controller="View1Ctrl" style="top: 200px">
     <div class="menu" id="div_SearchContainer">
-    <h1 align="absolute" style="text-align: center; color: #1ab188">Search your place of interest!</h1>
-    <input type="text" id="txt_placeName" placeholder="Enter the place you want to search for" style="margin-left: 100px"/>
-    <input type="text" id="txt_searchFilter" placeholder="Enter the search query"/>
-    <button id="btn_getReview" ng-click="getVenues()">Get Venues</button>
+    <h1 align="absolute" style="text-align: center; color: #1ab188">Search for a date!</h1>
+
+    <label type="month" style="margin-left: 100px">Month:</label>
+    <input type="text" id="txt_month" placeholder="Enter the month (1-12)"/>
+
+    <label type="day">Day:</label>
+    <input type="text" id="txt_day" placeholder="Enter the day (1-31)"/>
+
+    <button id="btn_getDate" ng-click="getDate()">Get Date Info</button>
     </div>
-    <div id="div_VenueList">
-      <h2 style="text-align: center; color: #1ab188"> Top Five Picks From FourSquare Review API </h2>
-      <ul>
-       <li ng-repeat="venue in venueList" style="font-size: x-large; color: #5e5e5e; text-align: center; list-style: none; list-style-position:inside;">
-          <a  href="" ng-click="getReviews(venue)" style="font-size: x-large; color: #5e5e5e; text-align: center;">{{venue.name}}</a>
-        </li>
-      </ul>
+
+    <div id="div_DateText">
+      <h2 style="text-align: center; color: #1ab188"> Information on the date you chose: </h2>
+        <h3 style="text-align: center; color: #1ab188" id="txt_output"></h3>
 
     </div>
-    <div id="div_ReviewList" style="display:none;"  >
-
-
-          <p ng-model="ReviewWithSentiment">
-
-            <TABLE BORDER=2 CELLPADDING=4 ng-show="showt"> <TR> <TH style="color: aliceblue; background:#1ab188" COLSPAN=2>Sentiment Analysis From Using Alchemy API </TH> </TR>
-                <TR> <TD>Most recent review</TD> <TD>{{ReviewWithSentiment.reviewText}}</TD> </TR>
-                <TR> <TD>Sentiment of the review</TD> <TD>{{ReviewWithSentiment.sentiment}}</TD> </TR>
-                <TR> <TD>Sentiment Score of the review</TD> <TD>{{ReviewWithSentiment.score}}</TD> </TR>
-                <TR> <TH style="color: aliceblue; background:#1ab188" COLSPAN=2 BGCOLOR="#445553">{{ReviewWithSentiment.reviewText}}</TH> </TR>
-            </TABLE>
-            <span ng-show="shows" style="text-align: center;">{{noText}}</span>
-          </p>
-	</div>
   </div>
 
 
