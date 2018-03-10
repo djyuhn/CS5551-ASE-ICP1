@@ -20,4 +20,4 @@ email: djgw3@mail.umkc.edu, ymmm7@mail.umkc.edu, smrhfb@mail.umkc.edu
 
 ![In Class Programming 6 Wiki](https://github.com/djyuhn/CS5551-ASE-ICP1/wiki/In-Class-Programming-6)
 
-
+![In Class Programming 7 Wiki](https://github.com/djyuhn/CS5551-ASE-ICP1/wiki/In-Class-Programming-7)
