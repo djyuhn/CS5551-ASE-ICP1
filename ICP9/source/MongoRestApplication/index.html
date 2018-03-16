@@ -85,18 +85,20 @@
 
     <div class="contact-form" style="width:100%;">
         <!-- start-form -->
-        <form class="contact_form"  style="background: #FFF; width:100%;" ng-submit="findPhone()" name="search_phone">
+        <form class="contact_form"  style="background: #FFF; width:100%;" ng-submit="findPhone()" name="contact_form">
             <h1>Search for Phone Number Here</h1>
-
-            <input name="phoneSearch" name="phone" ng-model="formData.phoneSearch" type="text" ng-required="true" autocomplete="off" placeholder="Contact Number" class="form-control" required>
-            <p><img src="images/contact.png" alt=""></p>
-
+            <ul>
+                <input name="phoneSearch" name="phone" ng-model="formData.phoneSearch" type="text" ng-required="true" autocomplete="off" placeholder="Search Number" class="form-control" required>
+                <p><img src="images/contact.png" alt=""></p>
+            </ul>
             <input type="submit" name="Search Phone" style="width:100%;" value="Search Phone"/>
-            <div class="clear"></div>
         </form>
         <!-- end-form -->
+        <!-- start-account -->
+        <div class="clear"></div>
     </div>
 </div>
+
 <script type="text/javascript" src="http://code.angularjs.org/1.1.1/angular.js"></script>
 <script type="text/javascript" src="http://code.angularjs.org/1.1.1/angular-resource.js"></script>
 <script type="text/javascript" src="http://code.angularjs.org/1.1.1/angular-sanitize.js"></script>
