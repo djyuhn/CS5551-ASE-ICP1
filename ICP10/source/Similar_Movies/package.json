@@ -1,0 +1,13 @@
+{
+  "name": "ICP10",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "4.16.3",
+    "jade": "^1.11.0"
+  },
+  "author": "DJ Yuhn",
+  "license": "ISC"
+}
